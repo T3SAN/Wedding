@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Samang & Veaja Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Cinzel',serif;
+background:#7a0000;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.section{
+padding:60px 20px;
+}
+
+.hero{
+padding:120px 20px;
+background:linear-gradient(#8b0000,#4b0000);
+}
+
+.names{
+font-size:40px;
+color:gold;
+margin-top:10px;
+}
+
+.countdown{
+font-size:24px;
+margin-top:20px;
+}
+
+.gold-frame{
+border:4px solid gold;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+margin:auto;
+background:rgba(0,0,0,0.3);
+}
+
+.gallery{
+max-width:700px;
+margin:auto;
+position:relative;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+.gallery button{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:gold;
+border:none;
+padding:10px;
+cursor:pointer;
+}
+
+.prev{ left:0 }
+.next{ right:0 }
+
+iframe{
+width:100%;
+height:300px;
+border-radius:10px;
+border:none;
+}
+
+input,textarea{
+width:90%;
+padding:10px;
+margin:8px;
+border-radius:5px;
+border:none;
+}
+
+button{
+padding:12px 20px;
+background:gold;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.pattern{
+position:fixed;
+width:200%;
+height:200%;
+background-image:radial-gradient(rgba(255,215,0,0.15) 2px, transparent 2px);
+background-size:40px 40px;
+animation:movePattern 40s linear infinite;
+z-index:-1;
+}
+
+@keyframes movePattern{
+0%{transform:translate(0,0)}
+100%{transform:translate(-200px,-200px)}
+}
+
+.telegram{
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="pattern"></div>
+
+<audio autoplay loop>
+<source src="song.mp3">
+</audio>
+
+<section class="hero">
+
+<h1>Wedding Invitation</h1>
+
+<div class="names">
+Samang & Veaja
+</div>
+
+<div id="countdown" class="countdown"></div>
+
+</section>
+
+<section class="section">
+
+<div class="gold-frame">
+
+<h2>Invitation</h2>
+
+<p>
+Together with their families<br>
+Samang & Veaja<br>
+request the honor of your presence.
+</p>
+
+<p style="font-family:'Noto Serif Khmer'">
+សូមគោរពអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍<br>
+សាម៉ាង និង វីជា<br>
+ថ្ងៃទី ១៨ និង ១៩ ខែ មេសា ឆ្នាំ ២០២៦
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Photo Gallery</h2>
+
+<div class="gallery">
+
+<img id="slide" src="photo1.jpg">
+
+<button class="prev" onclick="prev()">❮</button>
+<button class="next" onclick="next()">❯</button>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="gold-frame">
+
+<h2>Wedding Location</h2>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d6526.604315311269!2d103.71921499000919!3d13.428281507096113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDI1JzUxLjQiTiAxMDPCsDQzJzQzLjkiRQ!5e0!3m2!1sen!2skh!4v1773570840730!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="gold-frame">
+
+<h2>RSVP</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="number" placeholder="Number of Guests">
+
+<textarea placeholder="Message"></textarea>
+
+<button type="submit">Send RSVP</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Share with Friends</h2>
+
+<div class="telegram">
+
+<button onclick="shareTelegram()">
+Share via Telegram
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+var wedding = new Date("Apr 18, 2026 07:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+
+var d = wedding - now;
+
+var days = Math.floor(d/(1000*60*60*24));
+var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("countdown").innerHTML =
+days + " Days " + hours + " Hours";
+
+},1000);
+
+var photos=["photo1.jpg","photo2.jpg","photo3.jpg"];
+var index=0;
+
+function next(){
+index=(index+1)%photos.length;
+document.getElementById("slide").src=photos[index];
+}
+
+function prev(){
+index=(index-1+photos.length)%photos.length;
+document.getElementById("slide").src=photos[index];
+}
+
+function shareTelegram(){
+
+var url=encodeURIComponent(window.location.href);
+var text=encodeURIComponent("You are invited to Samang & Veaja Wedding!");
+
+window.open("https://t.me/share/url?url="+url+"&text="+text);
+
+}
+
+</script>
+
+</body>
+</html>
