@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Samang & Veaja Wedding</title>
+  <title>Samang & Veacha Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&family=Noto+Serif+Khmer:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -218,7 +218,6 @@
     .hero-scroll {
       position: absolute;
       bottom: 32px;
-      left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
@@ -560,6 +559,12 @@
       color: var(--brown-light);
       line-height: 1.8;
     }
+    .venue-address-khmer {
+      font-family: 'Noto Serif Khmer', serif;
+      font-size: 14px;
+      color: var(--brown-light);
+      line-height: 1.8;
+    }
     .venue-btn {
       display: inline-block;
       margin-top: 20px;
@@ -847,7 +852,7 @@
 
 <!-- AUDIO -->
 <audio id="bg-audio" loop>
-  <source src="song2.mp3" type="audio/mpeg"/>
+  <source src="song.mp3" type="audio/mpeg"/>
 </audio>
 
 <!-- MUSIC FLOAT BUTTON -->
@@ -896,7 +901,7 @@
     <h1 class="hero-names">
       Samang
       <span class="amp">&amp;</span>
-      Veacha
+      Sokveacha
     </h1>
 
     <div class="hero-divider">
@@ -910,10 +915,9 @@
     <p class="hero-date">APRIL 18 &amp; 19 &nbsp;·&nbsp; 2026</p>
     <p class="hero-khmer">សូមគោរពអញ្ជើញចូលរួមក្នុងពិធីមង្គលការ</p>
   </div>
-
   <div class="hero-scroll">
     <span>SCROLL</span>
-    <div class="scroll-arrow"></div>
+  <div class="scroll-arrow"></div>
   </div>
 </section>
 
@@ -932,8 +936,8 @@
           <img src="image/groom.jpg" alt="Samang"/>
         </div>
         <div class="couple-card-name">Samang</div>
-        <div class="couple-card-name-khmer">សាម័ង</div>
-        <div class="couple-card-desc">Son of Mr. &amp; Mrs. Sokha<br/>Phnom Penh, Cambodia</div>
+        <div class="couple-card-name-khmer">សំអាង</div>
+        <div class="couple-card-desc">Son of Mr.HANN Heang &amp; Mrs. CHORK Sam At<br/>Siemreap, Cambodia</div>
         <div class="couple-card-parents">THE GROOM</div>
       </div>
       <!-- BRIDE - Replace src with your actual photo -->
@@ -941,9 +945,9 @@
         <div class="couple-card-photo">
           <img src="image/bride.jpg" alt="Veaja"/>
         </div>
-        <div class="couple-card-name">Veaja</div>
-        <div class="couple-card-name-khmer">វជ្រា</div>
-        <div class="couple-card-desc">Daughter of Mr. &amp; Mrs. Dara<br/>Siem Reap, Cambodia</div>
+        <div class="couple-card-name">Sokveacha</div>
+        <div class="couple-card-name-khmer">សុវាចារ្ត៍</div>
+        <div class="couple-card-desc">Daughter of Mr.PUT Lorn &amp; Mrs. THLAN Kan<br/>Siem Reap, Cambodia</div>
         <div class="couple-card-parents">THE BRIDE</div>
       </div>
     </div>
@@ -971,10 +975,13 @@
         <img src="image/pt1.jpg" alt="Couple 2"/>
       </div>
       <div class="gallery-item" onclick="openLightbox(this)" style="height:260px">
-        <img src="image/pd2.jpg" alt="Couple 3"/>
+        <img src="image/pt2.jpg" alt="Couple 3"/>
       </div>
       <div class="gallery-item" onclick="openLightbox(this)" style="height:260px">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Couple 4"/>
+        <img src="image/pt3.jpg" alt="Couple 4"/>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)" style="height:260px">
+        <img src="image/pt4.jpg" alt="Couple 6"/>
       </div>
       <div class="gallery-item wide" onclick="openLightbox(this)" style="height:260px">
         <img src="image/ls2.jpg" alt="Couple 5"/>
@@ -996,15 +1003,15 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-time">06:00 AM</div>
+        <div class="timeline-time">06:30 AM</div>
         <div class="timeline-event">Morning Blessing Ceremony</div>
-        <div class="timeline-event-khmer">ពិធីច្រៀងស្លោក</div>
+        <div class="timeline-event-khmer">ជួបជុំភ្ញៀវកិត្តិយសដើម្បីរៀបចំពិធីហែជំនូន</div>
         <div class="timeline-desc">Traditional monks' blessing and offering of alms</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-time">09:00 AM</div>
+        <div class="timeline-time">07:00 AM</div>
         <div class="timeline-event">Hair &amp; Make-Up Ceremony</div>
-        <div class="timeline-event-khmer">ពិធីស្ទូចសក់</div>
+        <div class="timeline-event-khmer">ពិធីហែរជំនូនកំណត់ចូលរោងជ័យ</div>
         <div class="timeline-desc">Traditional bridal preparation ritual</div>
       </div>
       <div class="timeline-item">
@@ -1054,14 +1061,17 @@
       <img class="venue-map-img"
         src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80"
         alt="Venue"/>
-      <div class="venue-name">Diamond Grand Ballroom</div>
-      <div class="venue-name-khmer">បន្ទប់ប្រជុំធំ ដាយម៉ោន</div>
+      <div class="venue-name">At Bride's House</div>
+      <div class="venue-name-khmer">គេហដ្ឋានខាងស្រី</div>
       <div class="venue-address">
-        No. 123, Street 360, Toul Svay Prey<br/>
-        Khan Chamkarmorn, Phnom Penh<br/>
-        Cambodia
+        Kompongtayorng Village, Pouk Commune,<br/>
+        Pouk District, Siem Reap Province<br/>
       </div>
-      <a class="venue-btn" href="https://maps.google.com" target="_blank">Get Directions</a>
+      <div class="venue-address-khmer">
+        ភូមិកំពង់តាយ៉ង ឃុំពួក ស្រុកពួក ខេត្តសៀមរាប
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3880.7030880132484!2d103.7278854888392!3d13.430696452591285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDI1JzUwLjciTiAxMDPCsDQzJzQyLjEiRQ!5e0!3m2!1sen!2skh!4v1773587558005!5m2!1sen!2skh" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="venue-btn" href="https://maps.app.goo.gl/MEiC9eTex31rCiPy9" target="_blank">Get Directions</a>
     </div>
   </div>
 </section>
@@ -1137,9 +1147,9 @@
     <p class="closing-quote reveal">"Two souls, one heart, bound together in eternal love and devotion."</p>
     <p class="closing-quote-khmer reveal">ព្រលឹងពីរ បេះដូងមួយ ចងភ្ជាប់គ្នាដោយស្នេហ៍ស្ថិតស្ថេរ</p>
     <div class="closing-names reveal">
-      Samang <span class="amp">&amp;</span> Veaja
+      Samang <span class="amp">&amp;</span> Sokveacha
     </div>
-    <p class="closing-date reveal">APRIL 18 &amp; 19 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; PHNOM PENH</p>
+    <p class="closing-date reveal">APRIL 18 &amp; 19 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; SIEM REAP</p>
   </div>
 </section>
 
@@ -1156,7 +1166,7 @@
 
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
-  SAMANG &amp; VEAJA &nbsp;·&nbsp; APRIL 2026 &nbsp;·&nbsp; PHNOM PENH, CAMBODIA
+  SAMANG &amp; SOKVEACHA &nbsp;·&nbsp; APRIL 2026 &nbsp;·&nbsp; SIEM REAP, CAMBODIA
 </footer>
 
 <script>
