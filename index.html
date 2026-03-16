@@ -410,6 +410,7 @@
       object-fit: cover;
       filter: sepia(15%) contrast(1.05);
       transition: transform 0.7s ease, filter 0.4s ease;
+      border-radius: 16px;
     }
     .gallery-item:hover img {
       transform: scale(1.06);
@@ -668,6 +669,21 @@
       0% { opacity: 0; transform: translateY(0); }
       30% { opacity: 1; }
       100% { opacity: 0; transform: translateY(-30px); }
+    }
+
+    /* ── QR CODE ── */
+    .qr-section {
+      background: var(--ivory);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .qr-code {
+      max-width: 420px;
+      margin: 28px auto 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 32px 28px;
+      display: flex;
     }
 
     /* ── RSVP ── */
@@ -1006,22 +1022,29 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-time">06:30 AM</div>
-        <div class="timeline-event">Morning Blessing Ceremony</div>
-        <div class="timeline-event-khmer">ជួបជុំភ្ញៀវកិត្តិយសដើម្បីរៀបចំពិធីហែជំនូន</div>
-        <div class="timeline-desc">Traditional monks' blessing and offering of alms</div>
+        <div class="timeline-time">01:00 PM</div>
+        <div class="timeline-event">Offering Ceremony</div>
+        <div class="timeline-event-khmer">ពិធីសែនក្រុងពាលី</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-time">07:00 AM</div>
         <div class="timeline-event">Hair &amp; Make-Up Ceremony</div>
-        <div class="timeline-event-khmer">ពិធីហែរជំនូនកំណត់ចូលរោងជ័យ</div>
-        <div class="timeline-desc">Traditional bridal preparation ritual</div>
+        <div class="timeline-event-khmer">ពិធីកាត់សក់បង្កក់សិរី</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">02:00 PM</div>
+        <div class="timeline-event">Monks Blessing Ceremony</div>
+        <div class="timeline-event-khmer">ពិធីសូត្រមន្តចម្រើនព្រះបរិត្ថ</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-time">02:00 PM</div>
         <div class="timeline-event">Tea Ceremony &amp; Gifts</div>
-        <div class="timeline-event-khmer">ពិធីតែ</div>
-        <div class="timeline-desc">Exchange of gifts between families</div>
+        <div class="timeline-event-khmer">ពិធីប៉ាយកុងម៉ាផឹកទឹកតែ</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">02:00 PM</div>
+        <div class="timeline-event">Dinner for Honored Guests</div>
+        <div class="timeline-event-khmer">អញ្ជើញភ្ញៀវកិត្តិយសពិសារភោជនាអាហារពេលល្ងាច</div>
       </div>
     </div>
 
@@ -1031,21 +1054,28 @@
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-time">05:30 AM</div>
-        <div class="timeline-event">Groom's Procession</div>
-        <div class="timeline-event-khmer">ពិធីស្ទូចខ្ចាយ</div>
-        <div class="timeline-desc">Groom arrives at bride's home</div>
+        <div class="timeline-event">Sun Salutation Ceremony</div>
+        <div class="timeline-event-khmer">ពិធីសំពះព្រះអាទិត្យ</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-time">10:00 AM</div>
-        <div class="timeline-event">Wedding Ceremony</div>
-        <div class="timeline-event-khmer">ពិធីមង្គលការ</div>
-        <div class="timeline-desc">Sacred marriage rites led by the Achar</div>
+        <div class="timeline-event">Groom's Procession</div>
+        <div class="timeline-event-khmer">ពិធីហែកំណត់ចូលរោងជ័យ</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-time">07:00 PM</div>
-        <div class="timeline-event">Reception Banquet</div>
-        <div class="timeline-event-khmer">ពិធីចំណីអាហារ</div>
-        <div class="timeline-desc">Grand dinner reception and celebration</div>
+        <div class="timeline-event">Breakfast Reception</div>
+        <div class="timeline-event-khmer">ពិធីពិសារភោជនាអាហារពេលព្រឹក</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">07:00 PM</div>
+        <div class="timeline-event">Sacred Knot &amp; Flower Shower Ceremony</div>
+        <div class="timeline-event-khmer">ពិធីពេលារួមខ្នើយសែនចងដៃ បាចផ្កាស្លា</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">07:00 PM</div>
+        <div class="timeline-event">Grand Wedding Reception</div>
+        <div class="timeline-event-khmer">អញ្ញើញភ្ញៀវកិត្តិយសពិសារភោជនាអាហារ</div>
       </div>
     </div>
   </div>
@@ -1108,6 +1138,18 @@
     </div>
   </div>
 </section>
+
+<!-- ══════════════ QR Code ══════════════ -->
+ <section>
+    <div class="qr-code-section">
+      <p class="section-label reveal">Scan to QR code</p>
+      <h2 class="section-title reveal">Wedding Gift</h2>
+      <p class="section-title-khmer reveal">ចំណងដៃ</p>
+      <div class="gold-divider reveal"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
+      <!-- Replace src with your actual QR code image URL -->
+      <img width="100%" src="image/qr-code.jpg" alt="RSVP QR Code" class="qr-code reveal"/>
+    </div>
+ </section>
 
 <!-- ══════════════ RSVP ══════════════ -->
 <section class="rsvp-section">
