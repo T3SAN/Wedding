@@ -1478,6 +1478,7 @@ setInterval(() => {
       try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbzd3AEGTP3G194u0eQU6dp2FtDZFGt0E4cj8BUNYbZW1r1-of4KCbENEMbHHHXgNhfd/exec", {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
         });
 
