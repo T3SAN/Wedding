@@ -7,7 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&family=Noto+Serif+Khmer:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+    html {
+      scroll-behavior: smooth;
+    }
     :root {
       --gold: #c9a84c;
       --gold-light: #e8d5a3;
@@ -300,6 +302,18 @@
       text-align: center;
       margin-bottom: 28px;
     }
+
+    .section.pattern {
+  position: relative;
+}
+
+.section.pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("image/khmer-pattern.jpg") top left/300px repeat;
+  opacity: 0.04;
+}
 
     .gold-divider {
       display: flex;
@@ -953,6 +967,43 @@
   text-align: center;
 }
 
+.gallery {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform 0.5s;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide:hover {
+  transform: scale(1.03);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  border-radius: 10px;
+}
+
     .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
@@ -1030,7 +1081,7 @@
 </section>
 
 <!-- ══════════════ COUPLE INTRO ══════════════ -->
-<section class="couple-intro">
+<section class="couple-intro section pattern">
   <div class="section-inner">
     <p class="section-label reveal">The Couple</p>
     <h2 class="section-title reveal">Together in Love</h2>
@@ -1063,7 +1114,7 @@
 </section>
 
 <!-- ══════════════ PHOTO GALLERY ══════════════ -->
-<section class="gallery-section">
+<section class="gallery-section section pattern">
   <div class="section-inner">
     <p class="section-label reveal">Our Moments</p>
     <h2 class="section-title reveal">Love Story</h2>
@@ -1077,7 +1128,10 @@
     <!-- GALLERY - Replace these src URLs with your actual photo URLs -->
     <div class="gallery-grid reveal">
       <div class="gallery-item wide" style="height:260px" onclick="openLightbox(this)">
-        <img src="image/ls1.jpg" alt="Couple 1"/>
+        <img src="image/ls1.jpg" class="slide active">
+        <img src="image/ls2.jpg" class="slide">
+        <img src="image/profile.jpg" class="slide">
+        <!-- <img src="image/ls1.jpg" alt="Couple 1"/> -->
       </div>
       <div class="gallery-item tall" onclick="openLightbox(this)">
         <img src="image/pt1.jpg" alt="Couple 2"/>
@@ -1112,7 +1166,7 @@
 </section>
 
 <!-- ══════════════ SCHEDULE ══════════════ -->
-<section class="schedule-section">
+<section class="schedule-section section pattern">
   <div class="section-inner">
     <p class="section-label reveal">The Events</p>
     <h2 class="section-title reveal">Wedding Schedule</h2>
@@ -1179,7 +1233,7 @@
 </section>
 
 <!-- ══════════════ VENUE ══════════════ -->
-<section class="venue-section">
+<section class="venue-section section pattern">
   <div class="section-inner">
     <p class="section-label reveal">Where We Celebrate</p>
     <h2 class="section-title reveal">The Venue</h2>
@@ -1207,7 +1261,7 @@
 </section>
 
 <!-- ══════════════ QR Code ══════════════ -->
- <section class="qr-section">
+ <section class="qr-section section pattern">
     <p class="section-label reveal">Scan to QR code</p>
     <h2 class="section-title reveal" style="color:var(--gold-light)">Wedding Gift</h2>
     <p class="section-title-khmer reveal">ចំណងដៃ</p>
@@ -1294,7 +1348,7 @@
 </section>
 
 <!-- ══════════════ SHARE ══════════════ -->
-<section class="share-section">
+<section class="share-section section pattern">
   <p class="share-label">SHARE THE JOY</p>
   <div class="share-btns">
     <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://yoursite.com" target="_blank">Facebook</a>
@@ -1455,6 +1509,31 @@ setInterval(() => {
   document.getElementById("hours").innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
   document.getElementById("minutes").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
 }, 1000);
+
+// Slideshow
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+
+// Lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+slides.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
 
   document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
 </script>
