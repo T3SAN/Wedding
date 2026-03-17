@@ -28,6 +28,9 @@
       font-family: 'Cormorant Garamond', serif;
       background: var(--cream);
       color: var(--brown);
+      background: url("image/khmer-pattern.jpg") top left / 300px repeat;
+      background-attachment: fixed;
+      z-index: 0;
       overflow-x: hidden;
       cursor: default;
     }
@@ -305,31 +308,6 @@
 
     .section.pattern {
   position: relative;
-}
-
-body {
-  /* Background pattern */
-  background: url("image/khmer-pattern.jpg") top left / 300px repeat;
-  
-  /* Optional: subtle base color behind pattern */
-  background-color: #fffaf5;
-
-  /* Keep pattern behind all content */
-  background-attachment: fixed;
-
-  /* Optional: smooth text over pattern */
-  color: #333;
-}
-
-/* Optional: reduce pattern intensity with overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-color: #fffaf5; /* same as body bg */
-  opacity: 0.04; /* controls pattern brightness */
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* .section.pattern::before {
