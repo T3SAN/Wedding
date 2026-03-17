@@ -690,7 +690,7 @@
 
     /* ── QR CODE ── */
     .qr-section {
-      background: var(--ivory);
+      background: var(--brown);
       padding: 80px 24px;
       text-align: center;
     }
@@ -1206,7 +1206,17 @@
   </div>
 </section>
 
-<!-- ══════════════ MUSIC SECTION ══════════════ -->
+<!-- ══════════════ QR Code ══════════════ -->
+ <section class="qr-section">
+    <p class="section-label reveal">Scan to QR code</p>
+    <h2 class="section-title reveal" style="color:var(--gold-light)">Wedding Gift</h2>
+    <p class="section-title-khmer reveal">ចំណងដៃ</p>
+    <div class="gold-divider reveal"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
+    <!-- Replace src with your actual QR code image URL -->
+    <img width="100%" src="image/qr-code.jpg" alt="RSVP QR Code" class="qr-code reveal"/>
+ </section>
+
+ <!-- ══════════════ MUSIC SECTION ══════════════ -->
 <section class="music-section">
   <p class="section-label" style="color:var(--gold);letter-spacing:6px;font-family:'Cinzel',serif;font-size:10px;text-transform:uppercase;margin-bottom:12px;opacity:0.8">Our Song</p>
   <h2 class="section-title reveal" style="color:var(--gold-light)">Playing For You</h2>
@@ -1236,20 +1246,8 @@
   </div>
 </section>
 
-<!-- ══════════════ QR Code ══════════════ -->
- <section>
-    <div class="qr-code-section">
-      <p class="section-label reveal">Scan to QR code</p>
-      <h2 class="section-title reveal">Wedding Gift</h2>
-      <p class="section-title-khmer reveal">ចំណងដៃ</p>
-      <div class="gold-divider reveal"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
-      <!-- Replace src with your actual QR code image URL -->
-      <img width="100%" src="image/qr-code.jpg" alt="RSVP QR Code" class="qr-code reveal"/>
-    </div>
- </section>
-
 <!-- ══════════════ RSVP ══════════════ -->
-<section class="rsvp-section">
+<!-- <section class="rsvp-section">
   <div class="section-inner">
     <p class="section-label">RSVP</p>
     <h2 class="section-title">Will You Join Us?</h2>
@@ -1275,7 +1273,7 @@
       <div class="sub">សូមអរគុណ! យើងរីករាយណាស់</div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- ══════════════ CLOSING ══════════════ -->
 <section class="closing-section">
@@ -1457,39 +1455,6 @@ setInterval(() => {
   document.getElementById("hours").innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
   document.getElementById("minutes").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
 }, 1000);
-
-  async function submitRSVP(event) {
-      event.preventDefault();
-      const form = event.target;
-
-      const data = {
-        fullName: form.fullName.value,
-        phone: form.phone.value,
-        attendance: form.attendance.value,
-        guests: form.guests.value,
-        message: form.message.value
-      };
-
-      try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbzd3AEGTP3G194u0eQU6dp2FtDZFGt0E4cj8BUNYbZW1r1-of4KCbENEMbHHHXgNhfd/exec", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.status === "success") {
-          alert("RSVP submitted successfully! 🎉");
-          form.reset();
-        } else {
-          alert("Oops! Something went wrong. Please try again.");
-        }
-      } catch (error) {
-        console.error(error);
-        alert("Error submitting RSVP. Check console for details.");
-      }
-    }
 
   document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
 </script>
