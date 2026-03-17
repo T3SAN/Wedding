@@ -431,6 +431,7 @@
       overflow: hidden;
       position: relative;
       cursor: pointer;
+      border-radius: 16px;
     }
     .gallery-item.wide { grid-column: span 2; }
     .gallery-item.tall { grid-row: span 2; }
@@ -440,7 +441,6 @@
       min-height: 200px;
       object-fit: cover;
       filter: sepia(15%) contrast(1.05);
-      transition: transform 0.7s ease, filter 0.4s ease;
       border-radius: 16px;
     }
     .gallery-item:hover img {
@@ -967,26 +967,54 @@
   text-align: center;
 }
 
-.gallery {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-}
-
 .slide {
-  width: 100%;
-  display: none;
-  cursor: pointer;
-  border-radius: 12px;
-  transition: transform 0.5s;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 
+    opacity 1.5s ease-in-out,
+    transform 6s ease-in-out;
+  border-radius: 16px;
 }
 
+/* Active slide */
 .slide.active {
-  display: block;
+  opacity: 1;
+  transform: scale(1.15); /* smooth Ken Burns */
+  z-index: 1;
 }
 
-.slide:hover {
-  transform: scale(1.03);
+/* 🎞️ Ken Burns effect */
+.slide.kenburns {
+  animation: kenburns 6s ease forwards;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: scale(1.15) translate(-10px, -10px);
+  }
+}
+
+/* 🎯 Direction transitions */
+.slide.from-right {
+  animation: fromRight 0.8s ease;
+}
+
+.slide.from-left {
+  animation: fromLeft 0.8s ease;
+}
+
+@keyframes fromRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fromLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* Lightbox */
@@ -1128,10 +1156,15 @@
     <!-- GALLERY - Replace these src URLs with your actual photo URLs -->
     <div class="gallery-grid reveal">
       <div class="gallery-item wide" style="height:260px" onclick="openLightbox(this)">
-        <img src="image/ls1.jpg" class="slide active">
-        <img src="image/ls2.jpg" class="slide">
-        <img src="image/profile.jpg" class="slide">
-        <!-- <img src="image/ls1.jpg" alt="Couple 1"/> -->
+        <div class="slide active">
+          <img src="image/ls1.jpg" >
+        </div>
+        <div class="slide active">
+          <img src="image/ls2.jpg" >
+        </div>
+        <div class="slide active">
+          <img src="image/profile.jpg" >
+        </div>
       </div>
       <div class="gallery-item tall" onclick="openLightbox(this)">
         <img src="image/pt1.jpg" alt="Couple 2"/>
@@ -1348,7 +1381,7 @@
 </section>
 
 <!-- ══════════════ SHARE ══════════════ -->
-<section class="share-section">
+<section class="share-section section pattern">
   <p class="share-label">SHARE THE JOY</p>
   <div class="share-btns">
     <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://yoursite.com" target="_blank">Facebook</a>
@@ -1510,15 +1543,33 @@ setInterval(() => {
   document.getElementById("minutes").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
 }, 1000);
 
-// Slideshow
 let index = 0;
-const slides = document.querySelectorAll(".slide");
+let interval;
 
-setInterval(() => {
+const slides = document.querySelectorAll(".slide");
+const gallery = document.querySelector(".gallery");
+
+function showSlide(newIndex) {
   slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
+
+  index = (newIndex + slides.length) % slides.length;
+
   slides[index].classList.add("active");
-}, 3000);
+}
+
+function startSlider() {
+  interval = setInterval(() => {
+    showSlide(index + 1);
+  }, 5000); // slower = smoother feel
+}
+
+function stopSlider() {
+  clearInterval(interval);
+}
+
+// Init
+slides[0].classList.add("active");
+startSlider();
 
 // Lightbox
 const lightbox = document.getElementById("lightbox");
@@ -1534,6 +1585,7 @@ slides.forEach(img => {
 lightbox.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
+
 
   document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
 </script>
