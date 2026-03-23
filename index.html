@@ -1185,20 +1185,20 @@
 
     <!-- GALLERY - Replace these src URLs with your actual photo URLs -->
     <div class="gallery-grid reveal">
-      <div class="gallery-item wide" style="height:260px" onclick="openLightbox(this)">
-        <div class="slide active">
+      <div class="gallery-item wide" style="height:260px">
+        <div class="slide active" onclick="openLightbox(this)">
           <img src="image/ls1.jpg" >
         </div>
-        <div class="slide active">
+        <div class="slide active" onclick="openLightbox(this)">
           <img src="image/ls2.jpg" >
         </div>
-        <div class="slide active">
+        <div class="slide active" onclick="openLightbox(this)">
           <img src="image/ls3.jpg" >
         </div>
-        <div class="slide active">
+        <div class="slide active" onclick="openLightbox(this)">
           <img src="image/ls4.jpg" >
         </div>
-        <div class="slide active">
+        <div class="slide active" onclick="openLightbox(this)">
           <img src="image/ls5.jpg" >
         </div>
       </div>
@@ -1606,22 +1606,6 @@ function stopSlider() {
 // Init
 slides[0].classList.add("active");
 startSlider();
-
-// Lightbox
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-slides.forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-  });
-});
-
-lightbox.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
-
 
   document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
 </script>
