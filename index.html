@@ -1617,27 +1617,6 @@ function stopSlider() {
 slides[0].classList.add("active");
 startSlider();
 
-  function shareFacebook() {
-  // URL to share
-  const urlToShare = encodeURIComponent("https://samangandveacha.cc");
-
-  // Construct Facebook share URL
-  const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${urlToShare}`;
-
-  // Open popup (desktop) or new tab (mobile)
-  const width = 550;
-  const height = 450;
-  const left = (window.innerWidth / 2) - (width / 2);
-  const top = (window.innerHeight / 2) - (height / 2);
-
-  window.open(
-    fbShareUrl,
-    'fbShareWindow',
-    `height=${height},width=${width},top=${top},left=${left},toolbar=0,location=0,menubar=0,scrollbars=0`
-  );
-  
-  return false; // prevent default link behavior
-
   document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
 </script>
 </body>
